@@ -679,3 +679,46 @@ footer p:first-child {
 
     transform: translateY(-3px);
 }
+
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
+
+#backToTop {
+    display: none;
+
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff5a36;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.2);
+
+    z-index: 999;
+
+    transition: 0.3s ease;
+}
+
+#backToTop:hover {
+    background: #e64625;
+
+    transform: translateY(-3px);
+}

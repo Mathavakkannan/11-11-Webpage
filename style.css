@@ -630,3 +630,23 @@ footer p:first-child {
 #contact p {
     line-height: 1.7;
 }
+
+/* =========================
+   CONTACT LINKS
+========================= */
+
+#contact p a {
+    color: #ff5a36;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+#contact p a:hover {
+    color: #e64625;
+
+    text-decoration: underline;
+}

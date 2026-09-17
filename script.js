@@ -138,6 +138,9 @@ if (contactForm) {
 
         event.preventDefault();
 
+
+        // Get form values
+
         const name =
             document.querySelector("#name").value.trim();
 
@@ -151,52 +154,74 @@ if (contactForm) {
             document.querySelector("#message").value.trim();
 
 
-        // Basic validation
+        // =========================
+        // VALIDATION
+        // =========================
 
         if (name === "") {
+
             alert("Please enter your name.");
+
             return;
+
         }
+
 
         if (!email.includes("@")) {
+
             alert("Please enter a valid email address.");
+
             return;
+
         }
+
 
         if (phone.length < 10) {
+
             alert("Please enter a valid phone number.");
+
             return;
+
         }
+
 
         if (message === "") {
+
             alert("Please enter your message.");
+
             return;
+
         }
 
 
-        // Send data to Formspree
+        // =========================
+        // SEND TO FORMSPREE
+        // =========================
 
         try {
 
-            const response = await fetch(
-                "https://formspree.io/f/xdekogrl",
-                {
-                    method: "POST",
+            const formData =
+                new FormData(contactForm);
 
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
 
-                    body: JSON.stringify({
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        message: message
-                    })
-                }
-            );
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xdekogrl",
+                    {
+                        method: "POST",
 
+                        body: formData,
+
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            // =========================
+            // SUCCESS
+            // =========================
 
             if (response.ok) {
 
@@ -208,17 +233,655 @@ if (contactForm) {
 
                 contactForm.reset();
 
-            } else {
+            }
+
+
+            // =========================
+            // ERROR
+            // =========================
+
+            else {
+
+                const result =
+                    await response.json();
+
+                console.log(
+                    "Formspree error:",
+                    result
+                );
 
                 alert(
-                    "Sorry, your message could not be sent. Please try again."
+                    "Sorry, your message could not be sent."
                 );
 
             }
 
-        } catch (error) {
+        }
 
-            console.error("Form error:", error);
+
+        // =========================
+        // CONNECTION ERROR
+        // =========================
+
+        catch (error) {
+
+            console.error(
+                "Form error:",
+                error
+            );
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
+
+    });
+
+}// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.querySelector("#contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        // Get form values
+
+        const name =
+            document.querySelector("#name").value.trim();
+
+        const email =
+            document.querySelector("#email").value.trim();
+
+        const phone =
+            document.querySelector("#phone").value.trim();
+
+        const message =
+            document.querySelector("#message").value.trim();
+
+
+        // =========================
+        // VALIDATION
+        // =========================
+
+        if (name === "") {
+
+            alert("Please enter your name.");
+
+            return;
+
+        }
+
+
+        if (!email.includes("@")) {
+
+            alert("Please enter a valid email address.");
+
+            return;
+
+        }
+
+
+        if (phone.length < 10) {
+
+            alert("Please enter a valid phone number.");
+
+            return;
+
+        }
+
+
+        if (message === "") {
+
+            alert("Please enter your message.");
+
+            return;
+
+        }
+
+
+        // =========================
+        // SEND TO FORMSPREE
+        // =========================
+
+        try {
+
+            const formData =
+                new FormData(contactForm);
+
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xdekogrl",
+                    {
+                        method: "POST",
+
+                        body: formData,
+
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            // =========================
+            // SUCCESS
+            // =========================
+
+            if (response.ok) {
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your message has been sent successfully."
+                );
+
+                contactForm.reset();
+
+            }
+
+
+            // =========================
+            // ERROR
+            // =========================
+
+            else {
+
+                const result =
+                    await response.json();
+
+                console.log(
+                    "Formspree error:",
+                    result
+                );
+
+                alert(
+                    "Sorry, your message could not be sent."
+                );
+
+            }
+
+        }
+
+
+        // =========================
+        // CONNECTION ERROR
+        // =========================
+
+        catch (error) {
+
+            console.error(
+                "Form error:",
+                error
+            );
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
+
+    });
+
+}// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.querySelector("#contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        // Get form values
+
+        const name =
+            document.querySelector("#name").value.trim();
+
+        const email =
+            document.querySelector("#email").value.trim();
+
+        const phone =
+            document.querySelector("#phone").value.trim();
+
+        const message =
+            document.querySelector("#message").value.trim();
+
+
+        // =========================
+        // VALIDATION
+        // =========================
+
+        if (name === "") {
+
+            alert("Please enter your name.");
+
+            return;
+
+        }
+
+
+        if (!email.includes("@")) {
+
+            alert("Please enter a valid email address.");
+
+            return;
+
+        }
+
+
+        if (phone.length < 10) {
+
+            alert("Please enter a valid phone number.");
+
+            return;
+
+        }
+
+
+        if (message === "") {
+
+            alert("Please enter your message.");
+
+            return;
+
+        }
+
+
+        // =========================
+        // SEND TO FORMSPREE
+        // =========================
+
+        try {
+
+            const formData =
+                new FormData(contactForm);
+
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xdekogrl",
+                    {
+                        method: "POST",
+
+                        body: formData,
+
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            // =========================
+            // SUCCESS
+            // =========================
+
+            if (response.ok) {
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your message has been sent successfully."
+                );
+
+                contactForm.reset();
+
+            }
+
+
+            // =========================
+            // ERROR
+            // =========================
+
+            else {
+
+                const result =
+                    await response.json();
+
+                console.log(
+                    "Formspree error:",
+                    result
+                );
+
+                alert(
+                    "Sorry, your message could not be sent."
+                );
+
+            }
+
+        }
+
+
+        // =========================
+        // CONNECTION ERROR
+        // =========================
+
+        catch (error) {
+
+            console.error(
+                "Form error:",
+                error
+            );
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
+
+    });
+
+}// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.querySelector("#contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        // Get form values
+
+        const name =
+            document.querySelector("#name").value.trim();
+
+        const email =
+            document.querySelector("#email").value.trim();
+
+        const phone =
+            document.querySelector("#phone").value.trim();
+
+        const message =
+            document.querySelector("#message").value.trim();
+
+
+        // =========================
+        // VALIDATION
+        // =========================
+
+        if (name === "") {
+
+            alert("Please enter your name.");
+
+            return;
+
+        }
+
+
+        if (!email.includes("@")) {
+
+            alert("Please enter a valid email address.");
+
+            return;
+
+        }
+
+
+        if (phone.length < 10) {
+
+            alert("Please enter a valid phone number.");
+
+            return;
+
+        }
+
+
+        if (message === "") {
+
+            alert("Please enter your message.");
+
+            return;
+
+        }
+
+
+        // =========================
+        // SEND TO FORMSPREE
+        // =========================
+
+        try {
+
+            const formData =
+                new FormData(contactForm);
+
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xdekogrl",
+                    {
+                        method: "POST",
+
+                        body: formData,
+
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            // =========================
+            // SUCCESS
+            // =========================
+
+            if (response.ok) {
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your message has been sent successfully."
+                );
+
+                contactForm.reset();
+
+            }
+
+
+            // =========================
+            // ERROR
+            // =========================
+
+            else {
+
+                const result =
+                    await response.json();
+
+                console.log(
+                    "Formspree error:",
+                    result
+                );
+
+                alert(
+                    "Sorry, your message could not be sent."
+                );
+
+            }
+
+        }
+
+
+        // =========================
+        // CONNECTION ERROR
+        // =========================
+
+        catch (error) {
+
+            console.error(
+                "Form error:",
+                error
+            );
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
+
+    });
+
+}
+// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.querySelector("#contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        // Get form values
+
+        const name =
+            document.querySelector("#name").value.trim();
+
+        const email =
+            document.querySelector("#email").value.trim();
+
+        const phone =
+            document.querySelector("#phone").value.trim();
+
+        const message =
+            document.querySelector("#message").value.trim();
+
+
+        // =========================
+        // VALIDATION
+        // =========================
+
+        if (name === "") {
+
+            alert("Please enter your name.");
+
+            return;
+
+        }
+
+
+        if (!email.includes("@")) {
+
+            alert("Please enter a valid email address.");
+
+            return;
+
+        }
+
+
+        if (phone.length < 10) {
+
+            alert("Please enter a valid phone number.");
+
+            return;
+
+        }
+
+
+        if (message === "") {
+
+            alert("Please enter your message.");
+
+            return;
+
+        }
+
+
+        // =========================
+        // SEND TO FORMSPREE
+        // =========================
+
+        try {
+
+            const formData =
+                new FormData(contactForm);
+
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xdekogrl",
+                    {
+                        method: "POST",
+
+                        body: formData,
+
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            // =========================
+            // SUCCESS
+            // =========================
+
+            if (response.ok) {
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your message has been sent successfully."
+                );
+
+                contactForm.reset();
+
+            }
+
+
+            // =========================
+            // ERROR
+            // =========================
+
+            else {
+
+                const result =
+                    await response.json();
+
+                console.log(
+                    "Formspree error:",
+                    result
+                );
+
+                alert(
+                    "Sorry, your message could not be sent."
+                );
+
+            }
+
+        }
+
+
+        // =========================
+        // CONNECTION ERROR
+        // =========================
+
+        catch (error) {
+
+            console.error(
+                "Form error:",
+                error
+            );
 
             alert(
                 "Something went wrong. Please try again."

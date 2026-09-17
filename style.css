@@ -581,3 +581,32 @@ footer p {
     }
 
 }
+/* =========================
+   CONTACT FORM IMPROVEMENT
+========================= */
+
+#contactForm input,
+#contactForm textarea {
+    transition: 0.3s ease;
+}
+
+#contactForm input:hover,
+#contactForm textarea:hover {
+    border-color: #bbbbbb;
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+#contactForm button {
+    margin-top: 5px;
+}
+
+
+/* Contact information */
+
+#contact p {
+    line-height: 1.7;
+}

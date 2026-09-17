@@ -360,3 +360,25 @@ if (contactForm) {
     );
 
 }
+// =========================
+// LOADING SCREEN
+// =========================
+
+window.addEventListener("load", function () {
+
+    const loader =
+        document.querySelector("#loader");
+
+    if (loader) {
+
+        loader.style.opacity = "0";
+
+        setTimeout(function () {
+
+            loader.style.display = "none";
+
+        }, 500);
+
+    }
+
+});

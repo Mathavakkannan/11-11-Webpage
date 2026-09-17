@@ -135,9 +135,9 @@ const contactForm =
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function (event) {
+   contactForm.addEventListener("submit", function (event) {
 
-        event.preventDefault();
+    console.log("Contact form submitted.");
 
 
         // Get form values

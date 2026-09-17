@@ -4,7 +4,9 @@
 
 window.addEventListener("load", function () {
 
-    console.log("11:11 Automotive website loaded successfully.");
+    console.log(
+        "11:11 Automotive website loaded successfully."
+    );
 
 });
 
@@ -13,7 +15,8 @@ window.addEventListener("load", function () {
 // NAVIGATION
 // =========================
 
-const navLinks = document.querySelectorAll(".nav-links a");
+const navLinks =
+    document.querySelectorAll(".nav-links a");
 
 navLinks.forEach(function (link) {
 
@@ -38,15 +41,20 @@ const heroButton =
 
 if (heroButton) {
 
-    heroButton.addEventListener("click", function (event) {
+    heroButton.addEventListener(
+        "click",
+        function (event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        alert("Welcome to 11:11 Automotive Services!");
+            alert(
+                "Welcome to 11:11 Automotive Services!"
+            );
 
-        window.location.href = "#services";
+            window.location.href = "#services";
 
-    });
+        }
+    );
 
 }
 
@@ -60,17 +68,20 @@ const serviceButton =
 
 if (serviceButton) {
 
-    serviceButton.addEventListener("click", function () {
+    serviceButton.addEventListener(
+        "click",
+        function () {
 
-        alert(
-            "Thank you for choosing 11:11 Automotive!"
-        );
+            alert(
+                "Thank you for choosing 11:11 Automotive!"
+            );
 
-        console.log(
-            "For Services button clicked."
-        );
+            console.log(
+                "For Services button clicked."
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -84,13 +95,16 @@ const addressButton =
 
 if (addressButton) {
 
-    addressButton.addEventListener("click", function () {
+    addressButton.addEventListener(
+        "click",
+        function () {
 
-        console.log(
-            "Address button clicked."
-        );
+            console.log(
+                "Address button clicked."
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -104,16 +118,19 @@ const serviceCards =
 
 serviceCards.forEach(function (card) {
 
-    card.addEventListener("click", function () {
+    card.addEventListener(
+        "click",
+        function () {
 
-        const serviceName =
-            card.querySelector("h2").textContent;
+            const serviceName =
+                card.querySelector("h2").textContent;
 
-        alert(
-            "You selected: " + serviceName
-        );
+            alert(
+                "You selected: " + serviceName
+            );
 
-    });
+        }
+    );
 
 });
 
@@ -125,6 +142,8 @@ serviceCards.forEach(function (card) {
 console.log(
     "11:11 Automotive JavaScript is working!"
 );
+
+
 // =========================
 // CONTACT FORM
 // =========================
@@ -132,763 +151,212 @@ console.log(
 const contactForm =
     document.querySelector("#contactForm");
 
-if (contactForm) {
-
-    contactForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-
-        // Get form values
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const message =
-            document.querySelector("#message").value.trim();
-
-
-        // =========================
-        // VALIDATION
-        // =========================
-
-        if (name === "") {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
-
-
-        if (!email.includes("@")) {
-
-            alert("Please enter a valid email address.");
-
-            return;
-
-        }
-
-
-        if (phone.length < 10) {
-
-            alert("Please enter a valid phone number.");
-
-            return;
-
-        }
-
-
-        if (message === "") {
-
-            alert("Please enter your message.");
-
-            return;
-
-        }
-
-
-        // =========================
-        // SEND TO FORMSPREE
-        // =========================
-
-        try {
-
-            const formData =
-                new FormData(contactForm);
-
-
-            const response =
-                await fetch(
-                    "https://formspree.io/f/xdekogrl",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                );
-
-
-            // =========================
-            // SUCCESS
-            // =========================
-
-            if (response.ok) {
-
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your message has been sent successfully."
-                );
-
-                contactForm.reset();
-
-            }
-
-
-            // =========================
-            // ERROR
-            // =========================
-
-            else {
-
-                const result =
-                    await response.json();
-
-                console.log(
-                    "Formspree error:",
-                    result
-                );
-
-                alert(
-                    "Sorry, your message could not be sent."
-                );
-
-            }
-
-        }
-
-
-        // =========================
-        // CONNECTION ERROR
-        // =========================
-
-        catch (error) {
-
-            console.error(
-                "Form error:",
-                error
-            );
-
-            alert(
-                "Something went wrong. Please try again."
-            );
-
-        }
-
-    });
-
-}// =========================
-// CONTACT FORM
-// =========================
-
-const contactForm =
-    document.querySelector("#contactForm");
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", async function (event) {
+    contactForm.addEventListener(
+        "submit",
+        async function (event) {
 
-        event.preventDefault();
+            // Stop normal form submission
 
-
-        // Get form values
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const message =
-            document.querySelector("#message").value.trim();
+            event.preventDefault();
 
 
-        // =========================
-        // VALIDATION
-        // =========================
+            // =========================
+            // GET FORM VALUES
+            // =========================
 
-        if (name === "") {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
+            const name =
+                document
+                    .querySelector("#name")
+                    .value
+                    .trim();
 
 
-        if (!email.includes("@")) {
-
-            alert("Please enter a valid email address.");
-
-            return;
-
-        }
+            const email =
+                document
+                    .querySelector("#email")
+                    .value
+                    .trim();
 
 
-        if (phone.length < 10) {
-
-            alert("Please enter a valid phone number.");
-
-            return;
-
-        }
+            const phone =
+                document
+                    .querySelector("#phone")
+                    .value
+                    .trim();
 
 
-        if (message === "") {
-
-            alert("Please enter your message.");
-
-            return;
-
-        }
+            const message =
+                document
+                    .querySelector("#message")
+                    .value
+                    .trim();
 
 
-        // =========================
-        // SEND TO FORMSPREE
-        // =========================
+            // =========================
+            // VALIDATION
+            // =========================
 
-        try {
+            if (name === "") {
 
-            const formData =
-                new FormData(contactForm);
+                alert(
+                    "Please enter your name."
+                );
+
+                return;
+
+            }
 
 
-            const response =
-                await fetch(
-                    "https://formspree.io/f/xdekogrl",
-                    {
-                        method: "POST",
+            if (
+                !email.includes("@") ||
+                !email.includes(".")
+            ) {
 
-                        body: formData,
+                alert(
+                    "Please enter a valid email address."
+                );
 
-                        headers: {
-                            "Accept": "application/json"
+                return;
+
+            }
+
+
+            if (phone.length < 10) {
+
+                alert(
+                    "Please enter a valid phone number."
+                );
+
+                return;
+
+            }
+
+
+            if (message === "") {
+
+                alert(
+                    "Please enter your message."
+                );
+
+                return;
+
+            }
+
+
+            // =========================
+            // SEND TO FORMSPREE
+            // =========================
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://formspree.io/f/xdekogrl",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body: JSON.stringify({
+
+                                name: name,
+
+                                email: email,
+
+                                phone: phone,
+
+                                message: message
+
+                            })
+
                         }
+                    );
+
+
+                // =========================
+                // SUCCESS
+                // =========================
+
+                if (response.ok) {
+
+                    alert(
+                        "Thank you, " +
+                        name +
+                        "! Your message has been sent successfully."
+                    );
+
+                    contactForm.reset();
+
+                }
+
+
+                // =========================
+                // FORMSPREE ERROR
+                // =========================
+
+                else {
+
+                    let result = null;
+
+                    try {
+
+                        result =
+                            await response.json();
+
+                    } catch (error) {
+
+                        console.log(
+                            "Could not read error response."
+                        );
+
                     }
-                );
 
 
-            // =========================
-            // SUCCESS
-            // =========================
+                    console.error(
+                        "Formspree error:",
+                        result
+                    );
 
-            if (response.ok) {
 
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your message has been sent successfully."
-                );
+                    alert(
+                        "Sorry, your message could not be sent. Please try again."
+                    );
 
-                contactForm.reset();
+                }
 
             }
 
 
             // =========================
-            // ERROR
+            // CONNECTION ERROR
             // =========================
 
-            else {
+            catch (error) {
 
-                const result =
-                    await response.json();
-
-                console.log(
-                    "Formspree error:",
-                    result
+                console.error(
+                    "Form error:",
+                    error
                 );
 
                 alert(
-                    "Sorry, your message could not be sent."
+                    "Something went wrong. Please check your internet connection and try again."
                 );
 
             }
 
         }
-
-
-        // =========================
-        // CONNECTION ERROR
-        // =========================
-
-        catch (error) {
-
-            console.error(
-                "Form error:",
-                error
-            );
-
-            alert(
-                "Something went wrong. Please try again."
-            );
-
-        }
-
-    });
-
-}// =========================
-// CONTACT FORM
-// =========================
-
-const contactForm =
-    document.querySelector("#contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-
-        // Get form values
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const message =
-            document.querySelector("#message").value.trim();
-
-
-        // =========================
-        // VALIDATION
-        // =========================
-
-        if (name === "") {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
-
-
-        if (!email.includes("@")) {
-
-            alert("Please enter a valid email address.");
-
-            return;
-
-        }
-
-
-        if (phone.length < 10) {
-
-            alert("Please enter a valid phone number.");
-
-            return;
-
-        }
-
-
-        if (message === "") {
-
-            alert("Please enter your message.");
-
-            return;
-
-        }
-
-
-        // =========================
-        // SEND TO FORMSPREE
-        // =========================
-
-        try {
-
-            const formData =
-                new FormData(contactForm);
-
-
-            const response =
-                await fetch(
-                    "https://formspree.io/f/xdekogrl",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                );
-
-
-            // =========================
-            // SUCCESS
-            // =========================
-
-            if (response.ok) {
-
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your message has been sent successfully."
-                );
-
-                contactForm.reset();
-
-            }
-
-
-            // =========================
-            // ERROR
-            // =========================
-
-            else {
-
-                const result =
-                    await response.json();
-
-                console.log(
-                    "Formspree error:",
-                    result
-                );
-
-                alert(
-                    "Sorry, your message could not be sent."
-                );
-
-            }
-
-        }
-
-
-        // =========================
-        // CONNECTION ERROR
-        // =========================
-
-        catch (error) {
-
-            console.error(
-                "Form error:",
-                error
-            );
-
-            alert(
-                "Something went wrong. Please try again."
-            );
-
-        }
-
-    });
-
-}// =========================
-// CONTACT FORM
-// =========================
-
-const contactForm =
-    document.querySelector("#contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-
-        // Get form values
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const message =
-            document.querySelector("#message").value.trim();
-
-
-        // =========================
-        // VALIDATION
-        // =========================
-
-        if (name === "") {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
-
-
-        if (!email.includes("@")) {
-
-            alert("Please enter a valid email address.");
-
-            return;
-
-        }
-
-
-        if (phone.length < 10) {
-
-            alert("Please enter a valid phone number.");
-
-            return;
-
-        }
-
-
-        if (message === "") {
-
-            alert("Please enter your message.");
-
-            return;
-
-        }
-
-
-        // =========================
-        // SEND TO FORMSPREE
-        // =========================
-
-        try {
-
-            const formData =
-                new FormData(contactForm);
-
-
-            const response =
-                await fetch(
-                    "https://formspree.io/f/xdekogrl",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                );
-
-
-            // =========================
-            // SUCCESS
-            // =========================
-
-            if (response.ok) {
-
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your message has been sent successfully."
-                );
-
-                contactForm.reset();
-
-            }
-
-
-            // =========================
-            // ERROR
-            // =========================
-
-            else {
-
-                const result =
-                    await response.json();
-
-                console.log(
-                    "Formspree error:",
-                    result
-                );
-
-                alert(
-                    "Sorry, your message could not be sent."
-                );
-
-            }
-
-        }
-
-
-        // =========================
-        // CONNECTION ERROR
-        // =========================
-
-        catch (error) {
-
-            console.error(
-                "Form error:",
-                error
-            );
-
-            alert(
-                "Something went wrong. Please try again."
-            );
-
-        }
-
-    });
-
-}
-// =========================
-// CONTACT FORM
-// =========================
-
-const contactForm =
-    document.querySelector("#contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-
-        // Get form values
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const message =
-            document.querySelector("#message").value.trim();
-
-
-        // =========================
-        // VALIDATION
-        // =========================
-
-        if (name === "") {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
-
-
-        if (!email.includes("@")) {
-
-            alert("Please enter a valid email address.");
-
-            return;
-
-        }
-
-
-        if (phone.length < 10) {
-
-            alert("Please enter a valid phone number.");
-
-            return;
-
-        }
-
-
-        if (message === "") {
-
-            alert("Please enter your message.");
-
-            return;
-
-        }
-
-
-        // =========================
-        // SEND TO FORMSPREE
-        // =========================
-
-        try {
-
-            const formData =
-                new FormData(contactForm);
-
-
-            const response =
-                await fetch(
-                    "https://formspree.io/f/xdekogrl",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                );
-
-
-            // =========================
-            // SUCCESS
-            // =========================
-
-            if (response.ok) {
-
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your message has been sent successfully."
-                );
-
-                contactForm.reset();
-
-            }
-
-
-            // =========================
-            // ERROR
-            // =========================
-
-            else {
-
-                const result =
-                    await response.json();
-
-                console.log(
-                    "Formspree error:",
-                    result
-                );
-
-                alert(
-                    "Sorry, your message could not be sent."
-                );
-
-            }
-
-        }
-
-
-        // =========================
-        // CONNECTION ERROR
-        // =========================
-
-        catch (error) {
-
-            console.error(
-                "Form error:",
-                error
-            );
-
-            alert(
-                "Something went wrong. Please try again."
-            );
-
-        }
-
-    });
+    );
 
 }

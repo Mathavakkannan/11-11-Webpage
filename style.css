@@ -111,7 +111,7 @@ body {
 
 
 /* =========================
-   BUTTON
+   HERO BUTTON
 ========================= */
 
 .hero-btn {
@@ -244,6 +244,8 @@ hr {
     transition: 0.3s;
 
     overflow: hidden;
+
+    cursor: pointer;
 }
 
 .service:hover {
@@ -387,6 +389,8 @@ hr {
     outline: none;
 
     font-family: Arial, sans-serif;
+
+    transition: 0.3s;
 }
 
 #contactForm input:focus,

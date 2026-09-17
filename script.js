@@ -125,9 +125,8 @@ serviceCards.forEach(function (card) {
 console.log(
     "11:11 Automotive JavaScript is working!"
 );
-
 // =========================
-// CONTACT FORM VALIDATION
+// CONTACT FORM
 // =========================
 
 const contactForm =
@@ -135,12 +134,9 @@ const contactForm =
 
 if (contactForm) {
 
-   contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener("submit", async function (event) {
 
-    console.log("Contact form submitted.");
-
-
-        // Get form values
+        event.preventDefault();
 
         const name =
             document.querySelector("#name").value.trim();
@@ -155,71 +151,80 @@ if (contactForm) {
             document.querySelector("#message").value.trim();
 
 
-        // Check name
+        // Basic validation
 
         if (name === "") {
-
             alert("Please enter your name.");
-
             return;
-
         }
-
-
-        // Check email
 
         if (!email.includes("@")) {
-
             alert("Please enter a valid email address.");
-
             return;
-
         }
-
-
-        // Check phone
 
         if (phone.length < 10) {
-
             alert("Please enter a valid phone number.");
-
             return;
-
         }
-
-
-        // Check message
 
         if (message === "") {
-
             alert("Please enter your message.");
-
             return;
-
         }
 
 
-        // Everything is valid
+        // Send data to Formspree
 
-        alert(
-            "Thank you, " +
-            name +
-            "! Your message is ready to be sent."
-        );
+        try {
+
+            const response = await fetch(
+                "https://formspree.io/f/xdekogrl",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: message
+                    })
+                }
+            );
 
 
-        console.log("Name:", name);
+            if (response.ok) {
 
-        console.log("Email:", email);
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your message has been sent successfully."
+                );
 
-        console.log("Phone:", phone);
+                contactForm.reset();
 
-        console.log("Message:", message);
+            } else {
 
+                alert(
+                    "Sorry, your message could not be sent. Please try again."
+                );
 
-        // Clear form
+            }
 
-        contactForm.reset();
+        } catch (error) {
+
+            console.error("Form error:", error);
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
 
     });
 

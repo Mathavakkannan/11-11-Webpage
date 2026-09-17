@@ -680,3 +680,47 @@ footer p:first-child {
     transform: translateY(-3px);
 }
 
+/* =========================
+   LOADING SCREEN
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+
+    background: #222;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10000;
+
+    transition: opacity 0.5s ease;
+}
+
+.loader-text {
+    color: #ffffff;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    animation: loaderPulse 1.2s infinite;
+}
+
+@keyframes loaderPulse {
+
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+
+}

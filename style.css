@@ -45,3 +45,19 @@ h2{
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
 }
+.service-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: #e63946;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.service-btn:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}

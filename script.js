@@ -360,36 +360,3 @@ if (contactForm) {
     );
 
 }
-// =========================
-// BACK TO TOP BUTTON
-// =========================
-
-const backToTop =
-    document.querySelector("#backToTop");
-
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 400) {
-
-        backToTop.style.display = "block";
-
-    } else {
-
-        backToTop.style.display = "none";
-
-    }
-
-});
-
-
-backToTop.addEventListener(
-    "click",
-    function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);

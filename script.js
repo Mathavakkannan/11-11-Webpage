@@ -127,7 +127,7 @@ console.log(
 );
 
 // =========================
-// CONTACT FORM
+// CONTACT FORM VALIDATION
 // =========================
 
 const contactForm =
@@ -139,27 +139,85 @@ if (contactForm) {
 
         event.preventDefault();
 
+
+        // Get form values
+
         const name =
-            document.querySelector("#name").value;
+            document.querySelector("#name").value.trim();
 
         const email =
-            document.querySelector("#email").value;
+            document.querySelector("#email").value.trim();
 
         const phone =
-            document.querySelector("#phone").value;
+            document.querySelector("#phone").value.trim();
 
         const message =
-            document.querySelector("#message").value;
+            document.querySelector("#message").value.trim();
+
+
+        // Check name
+
+        if (name === "") {
+
+            alert("Please enter your name.");
+
+            return;
+
+        }
+
+
+        // Check email
+
+        if (!email.includes("@")) {
+
+            alert("Please enter a valid email address.");
+
+            return;
+
+        }
+
+
+        // Check phone
+
+        if (phone.length < 10) {
+
+            alert("Please enter a valid phone number.");
+
+            return;
+
+        }
+
+
+        // Check message
+
+        if (message === "") {
+
+            alert("Please enter your message.");
+
+            return;
+
+        }
+
+
+        // Everything is valid
 
         alert(
-            "Thank you, " + name +
-            "! Your message has been received."
+            "Thank you, " +
+            name +
+            "! Your message is ready to be sent."
         );
 
+
         console.log("Name:", name);
+
         console.log("Email:", email);
+
         console.log("Phone:", phone);
+
         console.log("Message:", message);
+
+
+        // Clear form
 
         contactForm.reset();
 

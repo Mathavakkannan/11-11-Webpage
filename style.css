@@ -809,3 +809,32 @@ hr {
     border: 0;
     border-top: 1px solid #e5e5e5;
 }
+/* =========================
+   ABOUT BUTTON
+========================= */
+
+.about-btn {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 13px 28px;
+
+    background: #ff5a36;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.about-btn:hover {
+    background: #e64625;
+
+    transform: translateY(-3px);
+}
